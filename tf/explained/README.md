@@ -1,6 +1,6 @@
 # Tabular Fraud, Explained
 
-[Download the complete course ZIP](Tabular-Fraud-Explained-2026-10-15.zip?raw=true).
+[Download the complete course ZIP](tf%20explained.zip?raw=true).
 
 Extract the entire ZIP and open **index.html**. Start with chapter 00. No GPU, account, server, or internet connection is needed for the course.
 
