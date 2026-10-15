@@ -1,6 +1,8 @@
 # TF
 
-**Latest update:** [October 6 independent CH review — current code, Ya's plan, fixes and statistical next steps](reviews/2026-10-06/CH/README.md). The guides below preserve their October 5 snapshot.
+**New learning course, October 15:** [Tabular Fraud, Explained — download the offline course ZIP](explained/README.md). Twenty beginner chapters, interactive practice and recall, CPU labs, a project atlas, oral-defence exercises, and a complete PDF. Extract the ZIP and open `index.html`.
+
+**Earlier review:** [October 6 independent CH review — code, Ya's plan, fixes and statistical next steps](reviews/2026-10-06/CH/README.md). The guides below preserve their October 5 snapshot.
 
 I am building a Feature Tokenizer Transformer for transaction fraud scoring at the bank and testing whether account history improves its predictions.
 
