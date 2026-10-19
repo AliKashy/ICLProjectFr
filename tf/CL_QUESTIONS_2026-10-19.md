@@ -39,7 +39,7 @@ Following [the publication notes](PUBLICATION_NOTES.md), this page uses **Ya** f
 4. **Has the history-5 sliding run started on the pod?** Nothing on GitHub shows that it has. To check, from the project folder on the pod (read-only):
 
    ```bash
-   ls -la waqas/scoring/allpos_sliding_h5/ && cat waqas/scoring/allpos_sliding_h5/LATEST_RUN
+   ls -la <my code folder>/scoring/allpos_sliding_h5/ && cat <my code folder>/scoring/allpos_sliding_h5/LATEST_RUN
    ```
 
    "No such file or directory" means it never ran. If a run exists, I list that run folder and send the listing.
