@@ -1,5 +1,7 @@
 # TF
 
+**New, October 19:** [V2 proposed features workbook](features/README.md): 29 candidate inputs, each with the raw fields and transactions it is derived from.
+
 **New, October 19:** [CL’s questions for me](CL_QUESTIONS_2026-10-19.md), 19 numbered questions with CL’s recommendation for each.
 
 **New learning course, October 15:** [Tabular Fraud, Explained — download the offline course ZIP](explained/README.md). Twenty beginner chapters, interactive practice and recall, CPU labs, a project atlas, oral-defence exercises, and a complete PDF. Extract the ZIP and open `index.html`.
