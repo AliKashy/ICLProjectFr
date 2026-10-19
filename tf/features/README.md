@@ -12,6 +12,6 @@ These are the extra inputs proposed for version 2 of my fraud model, with where 
 
 None of these features is in the model yet. Each must pass the CPU feature screen, then the GPU comparison, and its inputs must be confirmed available when the bank decides on a transaction. Built means the code exists and passes tests on synthetic data; no proposed feature has been tested on bank data.
 
-Prepared 19 October 2026 by CL from the private feature catalogue and feature code; every derivation was checked against the code.
+Prepared 19 October 2026 by CL from the private feature catalogue and feature code. Every derivation was checked against the code, and the wording was reviewed for accuracy and plain language. Revised the same day: plain-language corrections, a longer glossary on the Read me sheet, and notes on three input-type fixes made to the screen code.
 
-ZIP SHA-256: `f8aa339b6f064a954aba389124d03b00b7eb26de288ffe04df17a2370a9fc43c`. Workbook SHA-256: `d7d7d6f074c2adfe0f3490d7ae4240f4c37f6383efaa65adb5195128a5dd90e3`.
+ZIP SHA-256: `671ee420d33cf8d08c5c8c1fa8471293ec6bbd4cfb18b67eb19f0401a41751ff`. Workbook SHA-256: `9ac82df4ee16d886d147f27fcefc41a33fb6f00495a3beaa00e7d9114bf5e011`.
