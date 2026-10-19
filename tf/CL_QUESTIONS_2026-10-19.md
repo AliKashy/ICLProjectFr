@@ -44,7 +44,7 @@ Following [the publication notes](PUBLICATION_NOTES.md), this page uses **Ya** f
 
    "No such file or directory" means it never ran. If a run exists, I list that run folder and send the listing.
 
-   **My answer:** Pending.
+   **My answer:** Answered in chat on 19 October: the answer is in the architecture record. CL read it: no sliding run exists yet. The 0.09 is the trained all-position model's own score, not post-hoc work.
 
 5. **Do my original sliding files match the runbook?** The copies on GitHub were rebuilt from photos, and neither matches the SHA-256 in the runbook. The runbook expects `45cdb1da…` for the script and `9a0fb794…` for the test file. Two checks on my PC:
    - Do the originals hash to those values?
@@ -52,7 +52,7 @@ Following [the publication notes](PUBLICATION_NOTES.md), this page uses **Ya** f
 
    **CL recommends** running the originals. If the `inspect` problem is also in the original, CL sends a one-line fix before the first run. It must come before, because the script records its own hash in each run.
 
-   **My answer:** Pending.
+   **My answer:** Answered in chat on 19 October: Copilot checked the originals; the indentation and the hashes are correct, so the GitHub copies are reconstruction errors. CL withdrew the fix; the originals run unchanged.
 
 6. **Is the lean V2 plan of 16 October (stages L1–L9) now the plan?** It would replace CH's 14 October improvement pathway, the package-006 data-scaling runs and the "sweep first" order. The options:
    - (a) Yes.
@@ -61,7 +61,7 @@ Following [the publication notes](PUBLICATION_NOTES.md), this page uses **Ya** f
 
    **CL recommends (b).**
 
-   **My answer:** Pending.
+   **My answer:** Answered in chat on 19 October: the lean plan is a proposal; I asked whether CL and CH agree. One GPU, so few runs: find the winning architecture and grow from there. CL's one-GPU version is with CH for agreement.
 
 7. **When do the V2 features come in?** The lean plan has no stage for new engineered features. Examples are recent-transaction counts, first visit to a merchant, and amount compared with the account's own past. The options:
    - (a) Add a feature stage after the history-20 comparison (L3). It tests a first wave of 5–8 features that exist at decision time: a cheap single-transaction screen first, then the chosen model.
@@ -70,15 +70,15 @@ Following [the publication notes](PUBLICATION_NOTES.md), this page uses **Ya** f
 
    **CL recommends (a).** Features are what the incumbent model relies on. The research pair is preparing the first-wave list.
 
-   **My answer:** Pending.
+   **My answer:** Answered in chat on 19 October: whatever is best, so CL's (a).
 
 8. **The incumbent model's feature importances.** On 13 October I said I would add the incumbent XGBoost model's feature importances and its full feature list. The full list is in my feature workbook. Are the "rank" values in its master sheet those importances? If not, when can I add the importances?
 
-   **My answer:** Pending.
+   **My answer:** Answered in chat on 19 October: yes, the ranks are the importances; the VAA score was the most important.
 
 9. **GPU budget for V2.** The lean plan starts with about 5 training runs and adds up to about 12 more if the early results call for them. A history-20 run took many hours in V1. How many GPUs, and roughly how many GPU-hours a week, can I use now?
 
-   **My answer:** Pending.
+   **My answer:** Answered in chat on 19 October: 1 GPU.
 
 ## C. Ya's higher history-5 score
 
@@ -92,7 +92,7 @@ Following [the publication notes](PUBLICATION_NOTES.md), this page uses **Ya** f
     - (b) No.
     - (c) I don't know; I will look.
 
-    **My answer:** Pending.
+    **My answer:** Not yet. On 19 October I asked why V1's improved code scored lower at history 5 than Ya's different code; CL answered in chat (most likely Ya's same-second history rule, epoch choice and run-to-run noise). Whether his records exist is still open.
 
 ## D. Data facts only the data owner can confirm
 
@@ -132,7 +132,7 @@ These decide whether a good result would also work in production. Questions 11 t
 
     **CL recommends (a).** The best two V1 results are the hand-scored ones.
 
-    **My answer:** Pending.
+    **My answer:** Answered in chat on 19 October: the results already uploaded should be enough. CL closes V1 with the two hand-scored runs labelled as scored separately.
 
 ## F. Housekeeping
 
