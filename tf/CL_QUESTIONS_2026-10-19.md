@@ -82,8 +82,13 @@ Following [the publication notes](PUBLICATION_NOTES.md), this page uses **Ya** f
 
 ## C. Ya's higher history-5 score
 
-10. **Does Ya's 10-file, history-5 checkpoint still exist?** His flat history-5 model scored AP 0.0871 on the same evaluation files where V1's scored 0.0728. If his trained model file still exists in his pod folder, CL can re-score it with our evaluation code, using no training and minutes of GPU time. That shows whether the gap comes from his training or from his history rule: his code let transactions in the same second see each other, and ours does not. The options:
-    - (a) Yes, it exists (give the folder name).
+10. **Do Ya's 10-file, history-5 run records still exist?** His flat history-5 model scored AP 0.0871 on the same evaluation files where V1's scored 0.0728. His single-transaction model, though, was weaker than ours (0.0792 against 0.0925), so the gap is about history. The leading reason: his code let a transaction see other transactions of the same account in the same second as "history", and ours does not. Those rows are about 2% of transactions but 6.7% of training frauds. If they are not visible when a card is authorised, part of his 0.0871 cannot be reached in production. Three records settle it, cheapest first:
+    - his training log and per-epoch scores file. They show how many files he trained on, the steps per epoch, which validation files he used and his best epoch. Reading them takes seconds and touches no transactions.
+    - his evaluation prediction file. With it, CL compares his scores with V1's on the same transactions, split into those with and without an earlier transaction in the same second. CPU minutes, no GPU.
+    - his trained model file. It is needed only if the prediction file is gone: CL re-scores it with no training, minutes of GPU time.
+
+    The options:
+    - (a) Yes (say which of the three, and the folder name).
     - (b) No.
     - (c) I don't know; I will look.
 
@@ -149,9 +154,11 @@ These decide whether a good result would also work in production. Questions 11 t
     - **Read-only, CPU, a few minutes in total:**
       - (a) The history-5 B run's validation score at every epoch. Its best epoch was 0, the first pass of the data. This shows whether that run went wrong, which is most of the "0.06 to 0.09" story.
       - (b) Whether the training folder and the evaluation folder share accounts. A one-file comparison, printing counts only. If they share accounts, the next data split must avoid that.
-      - (c) The batch settings recorded in two finished runs, to confirm the record.
+      - (c) The batch settings recorded in two finished runs, to confirm the record. The first lines also print the installed pandas, numpy and torch versions.
       - (e) A re-run of the existing comparison script on the saved V1 scores. It adds the healthy runs as references for the all-position model, on the same transactions. This is the most direct test of the "0.06 to 0.09" question. CPU minutes.
-    - **One short GPU job, no training:** (d) score the history-5 B run's last saved model on the evaluation files. If it scores much higher than its epoch-0 model, the "0.06" was a bad pick of epoch, not a weak design.
+    - **One short GPU job, no training:** (d) score the last saved model of two history-5 runs on the evaluation files:
+      - the history-5 B run. If it scores much higher than its epoch-0 model, the "0.06" was a bad pick of epoch, not a weak design.
+      - V1's flat history-5 run (best epoch 2 of 8). This shows whether a later epoch closes part of the gap to Ya's 0.0871 (question 10).
 
     The options:
     - (a) Yes, (a)–(e).
