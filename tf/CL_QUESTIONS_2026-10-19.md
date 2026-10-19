@@ -96,7 +96,7 @@ Following [the publication notes](PUBLICATION_NOTES.md), this page uses **Ya** f
 
 ## D. Data facts only the data owner can confirm
 
-These decide whether a good result would also work in production. Questions 11 to 15 can go to the data owner in one message.
+These decide whether a good result would also work in production. Questions 11 to 15, 20 and 21 can go to the data owner in one message.
 
 11. **Same-second transactions.** When two transactions of one account share a timestamp, does the bank's fraud decision for the second one know about the first? A "no" means models must never use same-second history. V1 already follows that rule; Ya's runs did not.
 
@@ -115,6 +115,14 @@ These decide whether a good result would also work in production. Questions 11 t
     **My answer:** Pending.
 
 15. **The timestamp.** What moment does the transaction time record: request arrival, decision, or posting? Is it UTC or local time?
+
+    **My answer:** Pending.
+
+20. **Which transaction types use which daily limit?** Which transaction types or methods count against the daily merchandise limit, and which against the daily cash limit? A "share of the limit used" feature must divide by the right one.
+
+    **My answer:** Pending.
+
+21. **Declined attempts and the fraud label.** Are declined authorisations in the files, and can a declined attempt be labelled fraud? If declined fraud is never labelled, "this would overdraw the account" can look like a sign of a genuine customer for the wrong reason.
 
     **My answer:** Pending.
 
@@ -156,14 +164,15 @@ These decide whether a good result would also work in production. Questions 11 t
       - (b) Whether the training folder and the evaluation folder share accounts. A one-file comparison, printing counts only. If they share accounts, the next data split must avoid that.
       - (c) The batch settings recorded in two finished runs, to confirm the record. The first lines also print the installed pandas, numpy and torch versions.
       - (e) A re-run of the existing comparison script on the saved V1 scores. It adds the healthy runs as references for the all-position model, on the same transactions. This is the most direct test of the "0.06 to 0.09" question. CPU minutes.
+      - (g) Whether the balance and limit fields really hold the values from before each transaction, as the field list says. If they were recorded after the bank's decision, they would quietly tell the model whether the bank approved the transaction, a leak that would also break the new balance and limit features. Counts only, CPU minutes.
       - (f) Same-second transactions, for question 10. How many transactions, and frauds, have an earlier transaction of the same account at the same moment? For each such pair: is it an advice notice, a repeat of the same amount, or a separate purchase? And do the balance and limit fields show that the bank had already processed the earlier one? Counts only, CPU minutes.
     - **One short GPU job, no training:** (d) score the last saved model of two history-5 runs on the evaluation files:
       - the history-5 B run. If it scores much higher than its epoch-0 model, the "0.06" was a bad pick of epoch, not a weak design.
       - V1's flat history-5 run (best epoch 2 of 8). This shows whether a later epoch closes part of the gap to Ya's 0.0871 (question 10).
 
     The options:
-    - (a) Yes, (a)–(f).
-    - (b) Only the read-only and CPU checks (a), (b), (c), (e) and (f).
+    - (a) Yes, (a)–(g).
+    - (b) Only the read-only and CPU checks (a), (b), (c), (e), (f) and (g).
     - (c) Not now.
 
     **CL recommends (a).** No training is involved, and it answers the "0.06 to 0.09" question directly.
