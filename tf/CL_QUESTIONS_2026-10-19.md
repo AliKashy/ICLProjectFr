@@ -16,7 +16,7 @@ Following [the publication notes](PUBLICATION_NOTES.md), this page uses **Ya** f
 
    **CL recommends (b):** one chat fewer, and that auditor already knows the project.
 
-   **My answer:** Pending.
+   **My answer:** Delegated on 19 October ("you decide with the researchers, plan managers, ChatGPT etc."). Decided: (b), the existing independent auditor becomes the ChatGPT audit member; I open one ChatGPT research chat when convenient. Nothing waits on it.
 
 2. **The plain-English explainer.** It kept the plain-English project guide (11 chapters) current with a timer every 2 hours. That timer has been off since 17 October, and CL has now retired the session. The options:
    - (a) Leave it retired.
@@ -24,7 +24,7 @@ Following [the publication notes](PUBLICATION_NOTES.md), this page uses **Ya** f
 
    **CL recommends (b).**
 
-   **My answer:** Pending.
+   **My answer:** Delegated on 19 October ("you decide with the researchers, plan managers, ChatGPT etc."). Decided: (b), on demand only, no timer.
 
 3. **GitHub Copilot's role from now on.** The 14–15 October work came from Copilot on my work PC: Ya's audit, the sliding package and the V2 plan. My 19 October rule says CL and CH write all the code. The options:
    - (a) Copilot only helps on the bank side: copying, installing, running and checking.
@@ -32,7 +32,7 @@ Following [the publication notes](PUBLICATION_NOTES.md), this page uses **Ya** f
 
    **CL recommends (a).** Every line of code then has one owner, and nothing is written twice.
 
-   **My answer:** Pending.
+   **My answer:** Delegated on 19 October ("you decide with the researchers, plan managers, ChatGPT etc."). Decided: (a), Copilot helps on the bank side only (copying, installing, running, checking); CL and CH write the code.
 
 ## B. The sliding experiment and the next runs
 
@@ -61,7 +61,7 @@ Following [the publication notes](PUBLICATION_NOTES.md), this page uses **Ya** f
 
    **CL recommends (b).**
 
-   **My answer:** Answered in chat on 19 October: the lean plan is a proposal; I asked whether CL and CH agree. One GPU, so few runs: find the winning architecture and grow from there. CL's one-GPU version is with CH for agreement.
+   **My answer:** Answered in chat on 19 October: the lean plan is a proposal; I asked whether CL and CH agree. One GPU, so few runs: find the winning architecture and grow from there. CL's one-GPU version is with CH for agreement. Later the same day I asked for a proper test of the chunk model against normal B at the same history (5 and 20) before choosing, and delegated the remaining decisions. The governing plan (version 3) is being finalised by CL with CH and the research and audit chats.
 
 7. **When do the V2 features come in?** The lean plan has no stage for new engineered features. Examples are recent-transaction counts, first visit to a merchant, and amount compared with the account's own past. The options:
    - (a) Add a feature stage after the history-20 comparison (L3). It tests a first wave of 5–8 features that exist at decision time: a cheap single-transaction screen first, then the chosen model.
@@ -150,7 +150,7 @@ These decide whether a good result would also work in production. Questions 11 t
 
     **CL recommends (a).**
 
-    **My answer:** Pending.
+    **My answer:** Delegated on 19 October ("you decide with the researchers, plan managers, ChatGPT etc."). Decided: (a), CL closes the old items as superseded, keeping the data-owner questions (now 11-15, 20, 21).
 
 18. **The 14 October README and folder names.**
     - The 14 October README rebuild now covers every line (1–849, with a blank line 850) as partial files. Is the assembled `readme.md` still to come, or can CL work from the partial files?
@@ -177,4 +177,4 @@ These decide whether a good result would also work in production. Questions 11 t
 
     **CL recommends (a).** No training is involved, and it answers the "0.06 to 0.09" question directly.
 
-    **My answer:** Pending.
+    **My answer:** Delegated on 19 October ("you decide with the researchers, plan managers, ChatGPT etc."). Decided: (a), yes to all checks (a)-(g). The script is tested and reviewed; CL sends the exact commands when the next pod session starts.
