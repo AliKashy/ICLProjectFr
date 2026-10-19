@@ -150,11 +150,12 @@ These decide whether a good result would also work in production. Questions 11 t
       - (a) The history-5 B run's validation score at every epoch. Its best epoch was 0, the first pass of the data. This shows whether that run went wrong, which is most of the "0.06 to 0.09" story.
       - (b) Whether the training folder and the evaluation folder share accounts. A one-file comparison, printing counts only. If they share accounts, the next data split must avoid that.
       - (c) The batch settings recorded in two finished runs, to confirm the record.
+      - (e) A re-run of the existing comparison script on the saved V1 scores. It adds the healthy runs as references for the all-position model, on the same transactions. This is the most direct test of the "0.06 to 0.09" question. CPU minutes.
     - **One short GPU job, no training:** (d) score the history-5 B run's last saved model on the evaluation files. If it scores much higher than its epoch-0 model, the "0.06" was a bad pick of epoch, not a weak design.
 
     The options:
-    - (a) Yes, (a)–(d).
-    - (b) Only the read-only checks (a)–(c).
+    - (a) Yes, (a)–(e).
+    - (b) Only the read-only and CPU checks (a), (b), (c) and (e).
     - (c) Not now.
 
     **CL recommends (a).** No training is involved, and it answers the "0.06 to 0.09" question directly.
