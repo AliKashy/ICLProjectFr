@@ -140,7 +140,7 @@ These decide whether a good result would also work in production. Questions 11 t
     **My answer:** Pending.
 
 18. **The 14 October README and folder names.**
-    - Is the rest of the 14 October README (lines 622–850) still coming?
+    - The 14 October README rebuild now covers every line (1–849, with a blank line 850) as partial files. Is the assembled `readme.md` still to come, or can CL work from the partial files?
     - The updates now sit in two folders whose names differ only by a space or an underscore after "updates". Which name should both use?
 
     **My answer:** Pending.
