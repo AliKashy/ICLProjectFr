@@ -144,3 +144,19 @@ These decide whether a good result would also work in production. Questions 11 t
     - The updates now sit in two folders whose names differ only by a space or an underscore after "updates". Which name should both use?
 
     **My answer:** Pending.
+
+19. **May CL prepare one set of quick checks for the pod?** These are the cheapest checks that settle the open points. CL would put them in one script in the private repository; I would run it and send back what it prints.
+    - **Read-only, CPU, a few minutes in total:**
+      - (a) The history-5 B run's validation score at every epoch. Its best epoch was 0, the first pass of the data. This shows whether that run went wrong, which is most of the "0.06 to 0.09" story.
+      - (b) Whether the training folder and the evaluation folder share accounts. A one-file comparison, printing counts only. If they share accounts, the next data split must avoid that.
+      - (c) The batch settings recorded in two finished runs, to confirm the record.
+    - **One short GPU job, no training:** (d) score the history-5 B run's last saved model on the evaluation files. If it scores much higher than its epoch-0 model, the "0.06" was a bad pick of epoch, not a weak design.
+
+    The options:
+    - (a) Yes, (a)–(d).
+    - (b) Only the read-only checks (a)–(c).
+    - (c) Not now.
+
+    **CL recommends (a).** No training is involved, and it answers the "0.06 to 0.09" question directly.
+
+    **My answer:** Pending.
