@@ -1,6 +1,8 @@
 # TF — CL's questions for me (2026-10-19)
 
-CL (the Claude main worker) prepared these on 2026-10-19. I can answer by number, and a short answer is enough. Each question gives the options and CL's recommendation, so "go with CL" is a valid answer. Until I answer, CL follows the recommendation only where it says so, and nothing runs on the pod.
+CL (the Claude main worker) prepared these on 2026-10-19. I can answer by number, and a short answer is enough. Each question gives the options and CL's recommendation, so "go with CL" is a valid answer.
+
+**Update, 20 October.** I asked CL to make everything right from beginning to end and to replace questions with scripts wherever the data can answer: CL writes a read-only script, I run it on the bank's machine and return what it prints. Read-only CPU scripts may run as soon as I upload them; training waits for my word. The questions below keep their history; the ones that remain for a person are collected in [one short list](DATA_OWNER_QUESTIONS_2026-10-20.md).
 
 My answers go back to CL in chat or here. CL records them word for word in the private project record, so CH sees them too and I am never asked twice.
 
@@ -44,7 +46,7 @@ Following [the publication notes](PUBLICATION_NOTES.md), this page uses **Ya** f
 
    "No such file or directory" means it never ran. If a run exists, I list that run folder and send the listing.
 
-   **My answer:** Answered in chat on 19 October: the answer is in the architecture record. CL read it: no sliding run exists yet. The 0.09 is the trained all-position model's own score, not post-hoc work.
+   **My answer:** Answered in chat on 19 October: the answer is in the architecture record. Later the same day I reported that the sliding scoring did run: the all-position history-5 model scored 0.093420 on windows ending at each transaction, against 0.092670 when scored in chunks, on the same eleven evaluation files. CL treats the window-ending figure as the one of record for that model once I return the run's own check file (its tolerance must be small), and notes that it supports V2's design of scoring that way end to end.
 
 5. **Do my original sliding files match the runbook?** The copies on GitHub were rebuilt from photos, and neither matches the SHA-256 in the runbook. The runbook expects `45cdb1da…` for the script and `9a0fb794…` for the test file. Two checks on my PC:
    - Do the originals hash to those values?
@@ -61,7 +63,7 @@ Following [the publication notes](PUBLICATION_NOTES.md), this page uses **Ya** f
 
    **CL recommends (b).**
 
-   **My answer:** Answered in chat on 19 October: the lean plan is a proposal; I asked whether CL and CH agree. One GPU, so few runs: find the winning architecture and grow from there. CL's one-GPU version is with CH for agreement. Later the same day I asked for a proper test of the chunk model against normal B at the same history (5 and 20) before choosing, and delegated the remaining decisions. The governing plan (version 3) is being finalised by CL with CH and the research and audit chats.
+   **My answer:** Answered in chat on 19 October: the lean plan is a proposal; I asked whether CL and CH agree. One GPU, so few runs: find the winning architecture and grow from there. Later the same day I asked for a proper test of the chunk model against normal B at the same history (5 and 20) before choosing, and delegated the remaining decisions. The governing plan (version 6) was agreed by CL and CH on 19 October; its decision rules are written down before any result is read. One rule's recorded risk still awaits CH's confirmation.
 
 7. **When do the V2 features come in?** The lean plan has no stage for new engineered features. Examples are recent-transaction counts, first visit to a merchant, and amount compared with the account's own past. The options:
    - (a) Add a feature stage after the history-20 comparison (L3). It tests a first wave of 5–8 features that exist at decision time: a cheap single-transaction screen first, then the chosen model.
@@ -92,11 +94,11 @@ Following [the publication notes](PUBLICATION_NOTES.md), this page uses **Ya** f
     - (b) No.
     - (c) I don't know; I will look.
 
-    **My answer:** Not yet. On 19 October I asked why V1's improved code scored lower at history 5 than Ya's different code; CL answered in chat (most likely Ya's same-second history rule, epoch choice and run-to-run noise). Whether his records exist is still open.
+    **My answer:** Not yet. On 19 October I asked why V1's improved code scored lower at history 5 than Ya's different code; CL answered in chat (most likely Ya's same-second history rule, epoch choice and run-to-run noise). The first read-only script lists the prediction and run folders on the machine; my word on Ya's records closes it (item in the [20 October list](DATA_OWNER_QUESTIONS_2026-10-20.md)).
 
 ## D. Data facts only the data owner can confirm
 
-These decide whether a good result would also work in production. Questions 11 to 15, 20 and 21 can go to the data owner in one message.
+These decide whether a good result would also work in production. Since 20 October the scripts come first: the read-only data script measures what the data can show (same-second counts, the hour-of-day and clock-change profiles, the code values, the fraud rate by week, the advice rows and their twins, the limit fields, declines and currency columns if any exist). The questions below remain for the data owner, in the plain wording of the [20 October list](DATA_OWNER_QUESTIONS_2026-10-20.md); they can go in one message.
 
 11. **Same-second transactions.** When two transactions of one account share a timestamp, does the bank's fraud decision for the second one know about the first? A "no" means models must never use same-second history. V1 already follows that rule; Ya's runs did not.
 
@@ -156,13 +158,13 @@ These decide whether a good result would also work in production. Questions 11 t
     - The 14 October README rebuild now covers every line (1–849, with a blank line 850) as partial files. Is the assembled `readme.md` still to come, or can CL work from the partial files?
     - The updates now sit in two folders whose names differ only by a space or an underscore after "updates". Which name should both use?
 
-    **My answer:** Pending.
+    **My answer:** Pending. Meanwhile CL works from the partial README files as the README, and proposes the underscore form for both folders; I confirm or correct.
 
 19. **May CL prepare one set of quick checks for the pod?** These are the cheapest checks that settle the open points. CL would put them in one script in the private repository; I would run it and send back what it prints.
     - **Read-only, CPU, a few minutes in total:**
       - (a) The history-5 B run's validation score at every epoch. Its best epoch was 0, the first pass of the data. This shows whether that run went wrong, which is most of the "0.06 to 0.09" story.
-      - (b) Whether the training folder and the evaluation folder share accounts. A one-file comparison, printing counts only. If they share accounts, the next data split must avoid that.
-      - (c) The batch settings recorded in two finished runs, to confirm the record. The first lines also print the installed pandas, numpy and torch versions.
+      - (b) Whether the training folder and the evaluation folder share accounts: the account column of one file number found in both folders, and of V1's own training, validation and evaluation files, compared as counts only. If they share accounts, the next data split must avoid that.
+      - (c) The batch and validation settings recorded in each of the 15 finished runs, to confirm the record. The dry run also prints the installed pandas, numpy and torch versions.
       - (e) A re-run of the existing comparison script on the saved V1 scores. It adds the healthy runs as references for the all-position model, on the same transactions. This is the most direct test of the "0.06 to 0.09" question. CPU minutes.
       - (g) Whether the balance and limit fields really hold the values from before each transaction, as the field list says. If they were recorded after the bank's decision, they would quietly tell the model whether the bank approved the transaction, a leak that would also break the new balance and limit features. Counts only, CPU minutes.
       - (f) Same-second transactions, for question 10. How many transactions, and frauds, have an earlier transaction of the same account at the same moment? For each such pair: is it an advice notice, a repeat of the same amount, or a separate purchase? And do the balance and limit fields show that the bank had already processed the earlier one? Counts only, CPU minutes.
@@ -177,4 +179,4 @@ These decide whether a good result would also work in production. Questions 11 t
 
     **CL recommends (a).** No training is involved, and it answers the "0.06 to 0.09" question directly.
 
-    **My answer:** Delegated on 19 October ("you decide with the researchers, plan managers, ChatGPT etc."). Decided: (a), yes to all checks (a)-(g). The script is tested and reviewed; CL sends the exact commands when the next pod session starts.
+    **My answer:** Delegated on 19 October ("you decide with the researchers, plan managers, ChatGPT etc."). Decided: (a), yes to all checks (a)-(g). The script is tested and reviewed; the exact commands are in the one end-to-end runbook CL wrote on 20 October, and the CPU checks run as soon as the package is on the machine; (d), the GPU check, waits for my word.
