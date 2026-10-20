@@ -1,6 +1,6 @@
 # TF — CL's questions for me (2026-10-19)
 
-CL (the Claude main worker) prepared these on 2026-10-19. I can answer by number, and a short answer is enough. Each question gives the options and CL's recommendation, so "go with CL" is a valid answer.
+CL (the main worker on its side) prepared these on 2026-10-19. I can answer by number, and a short answer is enough. Each question gives the options and CL's recommendation, so "go with CL" is a valid answer.
 
 **Update, 20 October.** I asked CL to make everything right from beginning to end and to replace questions with scripts wherever the data can answer: CL writes a read-only script, I run it on the bank's machine and return what it prints. Read-only CPU scripts may run as soon as I upload them; training waits for my word. The questions below keep their history; the ones that remain for a person are collected in [one short list](DATA_OWNER_QUESTIONS_2026-10-20.md).
 
@@ -12,13 +12,13 @@ Following [the publication notes](PUBLICATION_NOTES.md), this page uses **Ya** f
 
 ## A. Team set-up
 
-1. **ChatGPT side of the two new pairs.** CL opened the two Claude assist chats: research (RS-CL) and audit (AU-CL). Their charters and two ready-to-paste opening messages for the ChatGPT side are in the private repository under `bridge/assist/`. The options:
-   - (a) Open two new ChatGPT chats, one for research and one for audit.
-   - (b) Open one new ChatGPT research chat. Turn CH's existing independent auditor chat into the ChatGPT audit member: it keeps its completeness checks, and modelling validity comes first.
+1. **CH's side of the two new pairs.** CL opened the two assist chats on its side (research and audit); their charters and two ready-to-paste opening messages for CH's side are in my private record. The options:
+   - (a) Open two new chats on CH's side, one for research and one for audit.
+   - (b) Open one new research chat on CH's side. Turn CH's existing independent auditor chat into the audit member: it keeps its completeness checks, and modelling validity comes first.
 
    **CL recommends (b):** one chat fewer, and that auditor already knows the project.
 
-   **My answer:** Delegated on 19 October ("you decide with the researchers, plan managers, ChatGPT etc."). Decided: (b), the existing independent auditor becomes the ChatGPT audit member; I open one ChatGPT research chat when convenient. Nothing waits on it.
+   **My answer:** Delegated on 19 October (I asked CL to decide with the researchers, the plan managers and CH). Decided: (b), the existing independent auditor becomes the audit member on CH's side; I open one research chat there when convenient. Nothing waits on it.
 
 2. **The plain-English explainer.** It kept the plain-English project guide (11 chapters) current with a timer every 2 hours. That timer has been off since 17 October, and CL has now retired the session. The options:
    - (a) Leave it retired.
@@ -26,15 +26,15 @@ Following [the publication notes](PUBLICATION_NOTES.md), this page uses **Ya** f
 
    **CL recommends (b).**
 
-   **My answer:** Delegated on 19 October ("you decide with the researchers, plan managers, ChatGPT etc."). Decided: (b), on demand only, no timer.
+   **My answer:** Delegated on 19 October (I asked CL to decide with the researchers, the plan managers and CH). Decided: (b), on demand only, no timer.
 
-3. **GitHub Copilot's role from now on.** The 14–15 October work came from Copilot on my work PC: Ya's audit, the sliding package and the V2 plan. My 19 October rule says CL and CH write all the code. The options:
-   - (a) Copilot only helps on the bank side: copying, installing, running and checking.
-   - (b) Copilot may still write code and plans, which CL and CH then review.
+3. **My local coding assistant's role from now on.** The 14–15 October work came from the coding assistant on my work PC: Ya's audit, the sliding package and the V2 plan. My 19 October rule says CL and CH write all the code. The options:
+   - (a) It only helps on the bank side: copying, installing, running and checking.
+   - (b) It may still write code and plans, which CL and CH then review.
 
    **CL recommends (a).** Every line of code then has one owner, and nothing is written twice.
 
-   **My answer:** Delegated on 19 October ("you decide with the researchers, plan managers, ChatGPT etc."). Decided: (a), Copilot helps on the bank side only (copying, installing, running, checking); CL and CH write the code.
+   **My answer:** Delegated on 19 October (I asked CL to decide with the researchers, the plan managers and CH). Decided: (a), the local assistant helps on the bank side only (copying, installing, running, checking); CL and CH write the code.
 
 ## B. The sliding experiment and the next runs
 
@@ -54,7 +54,7 @@ Following [the publication notes](PUBLICATION_NOTES.md), this page uses **Ya** f
 
    **CL recommends** running the originals. If the `inspect` problem is also in the original, CL sends a one-line fix before the first run. It must come before, because the script records its own hash in each run.
 
-   **My answer:** Answered in chat on 19 October: Copilot checked the originals; the indentation and the hashes are correct, so the GitHub copies are reconstruction errors. CL withdrew the fix; the originals run unchanged.
+   **My answer:** Answered in chat on 19 October: my local assistant checked the originals; the indentation and the hashes are correct, so the GitHub copies are reconstruction errors. CL withdrew the fix; the originals run unchanged.
 
 6. **Is the lean V2 plan of 16 October (stages L1–L9) now the plan?** It would replace CH's 14 October improvement pathway, the package-006 data-scaling runs and the "sweep first" order. The options:
    - (a) Yes.
@@ -84,7 +84,7 @@ Following [the publication notes](PUBLICATION_NOTES.md), this page uses **Ya** f
 
 ## C. Ya's higher history-5 score
 
-10. **Do Ya's 10-file, history-5 run records still exist?** His flat history-5 model scored AP 0.0871 on the same evaluation files where V1's scored 0.0728. His single-transaction model, though, was weaker than ours (0.0792 against 0.0925), so the gap is about history. The leading reason: his code let a transaction see other transactions of the same account in the same second as "history", and ours does not. Those rows are about 2% of transactions but 6.7% of training frauds. If they are not visible when a card is authorised, part of his 0.0871 cannot be reached in production. Three records settle it, cheapest first:
+10. **Do Ya's 10-file, history-5 run records still exist?** His flat history-5 model is recorded at AP 0.0871, which I understand was on the same evaluation files where V1's scored 0.0728; his records would confirm this. His single-transaction model, though, was weaker than ours (0.0792 against 0.0925), so the gap is about history. The leading reason: his code let a transaction see other transactions of the same account in the same second as "history", and ours does not. Those rows are about 2% of transactions but 6.7% of training frauds. If they are not visible when a card is authorised, part of his 0.0871 cannot be reached in production. Three records settle it, cheapest first:
     - his training log and per-epoch scores file. They show how many files he trained on, the steps per epoch, which validation files he used and his best epoch. Reading them takes seconds and touches no transactions.
     - his evaluation prediction file. With it, CL compares his scores with V1's on the same transactions, split into those with and without an earlier transaction in the same second. CPU minutes, no GPU.
     - his trained model file. It is needed only if the prediction file is gone: CL re-scores it with no training, minutes of GPU time.
@@ -112,7 +112,7 @@ These decide whether a good result would also work in production. Since 20 Octob
 
     **My answer:** Pending.
 
-14. **Advice records.** About one row in twenty carries a transaction-advice code. Are those real-time decisions, or notices that arrive later? Can one transaction appear twice?
+14. **Advice records.** About one row in twenty carries a transaction-advice code (Ya's early look at two files; the script will measure it). Are those real-time decisions, or notices that arrive later? Can one transaction appear twice?
 
     **My answer:** Pending.
 
@@ -152,7 +152,7 @@ These decide whether a good result would also work in production. Since 20 Octob
 
     **CL recommends (a).**
 
-    **My answer:** Delegated on 19 October ("you decide with the researchers, plan managers, ChatGPT etc."). Decided: (a), CL closes the old items as superseded, keeping the data-owner questions (now 11-15, 20, 21).
+    **My answer:** Delegated on 19 October (I asked CL to decide with the researchers, the plan managers and CH). Decided: (a), CL closes the old items as superseded, keeping the data-owner questions (now 11-15, 20, 21).
 
 18. **The 14 October README and folder names.**
     - The 14 October README rebuild now covers every line (1–849, with a blank line 850) as partial files. Is the assembled `readme.md` still to come, or can CL work from the partial files?
@@ -164,7 +164,7 @@ These decide whether a good result would also work in production. Since 20 Octob
     - **Read-only, CPU, a few minutes in total:**
       - (a) The history-5 B run's validation score at every epoch. Its best epoch was 0, the first pass of the data. This shows whether that run went wrong, which is most of the "0.06 to 0.09" story.
       - (b) Whether the training folder and the evaluation folder share accounts: the account column of one file number found in both folders, and of V1's own training, validation and evaluation files, compared as counts only. If they share accounts, the next data split must avoid that.
-      - (c) The batch and validation settings recorded in each of the 15 finished runs, to confirm the record. The dry run also prints the installed pandas, numpy and torch versions.
+      - (c) The batch and validation settings recorded in each of the 15 finished runs, to confirm the record. The dry run also prints the installed pandas, numpy, pyarrow, torch, lightning and xgboost versions.
       - (e) A re-run of the existing comparison script on the saved V1 scores. It adds the healthy runs as references for the all-position model, on the same transactions. This is the most direct test of the "0.06 to 0.09" question. CPU minutes.
       - (g) Whether the balance and limit fields really hold the values from before each transaction, as the field list says. If they were recorded after the bank's decision, they would quietly tell the model whether the bank approved the transaction, a leak that would also break the new balance and limit features. Counts only, CPU minutes.
       - (f) Same-second transactions, for question 10. How many transactions, and frauds, have an earlier transaction of the same account at the same moment? For each such pair: is it an advice notice, a repeat of the same amount, or a separate purchase? And do the balance and limit fields show that the bank had already processed the earlier one? Counts only, CPU minutes.
@@ -179,4 +179,4 @@ These decide whether a good result would also work in production. Since 20 Octob
 
     **CL recommends (a).** No training is involved, and it answers the "0.06 to 0.09" question directly.
 
-    **My answer:** Delegated on 19 October ("you decide with the researchers, plan managers, ChatGPT etc."). Decided: (a), yes to all checks (a)-(g). The script is tested and reviewed; the exact commands are in the one end-to-end runbook CL wrote on 20 October, and the CPU checks run as soon as the package is on the machine; (d), the GPU check, waits for my word.
+    **My answer:** Delegated on 19 October (I asked CL to decide with the researchers, the plan managers and CH). Decided: (a), yes to all checks (a)-(g). The script is tested and reviewed; the exact commands are in the one end-to-end runbook CL wrote on 20 October, and the CPU checks run as soon as the package is on the machine; (d), the GPU check, waits for my word.
