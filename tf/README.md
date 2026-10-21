@@ -32,6 +32,7 @@ I can answer the [open questions](QUESTIONS.md) by number. Most of the 5 October
 - **Version 2 has a governing plan** agreed by CL and CH on 19 October, and its decision rules were frozen on 20 October, before any result was read: test the chunk-trained model against the plain history model at the same history (5 and 20), without the month input, then grow the winner to a hundred training files, with one optional slot for a new feature family. Its decision rules are written down before any result is read.
 - **Nothing in version 2 has run on the bank's machine yet.** The version 2 code is packaged as [`009_20261021_180056_UTC.zip`](releases/009_20261021_180056_UTC.zip) in `releases/` (the tools only, now with the business report and the embedding checks; nothing runs by itself, and no result is claimed). The first step is a read-only script that measures the machine and the data (counts, types and names only); I run it and return the files it lists. Training follows only on my word.
 - **The questions that remain for a person** are in [one short list](DATA_OWNER_QUESTIONS_2026-10-20.md).
+- **The review of package 009** is answered in [response 1](RESPONSE_1.md).
 - The immediate use is offline fraud scoring and comparison. Beating the bank’s existing model, a benefit from pretraining and a live deployment have not been demonstrated.
 
 ## What I could say on 5 October (kept as history)
