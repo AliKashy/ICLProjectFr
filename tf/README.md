@@ -1,5 +1,7 @@
 # TF
 
+**New, October 26:** [Weekly presentation](WEEKLY_2026-10-26.md): the completed seed check, the final model (the chunk-trained architecture B at history 20), the training setup with two test sets, and the 166 features to add, with full lists.
+
 **New, October 20:** [Questions for the data owner](DATA_OWNER_QUESTIONS_2026-10-20.md): the eight questions only a person can answer, and the handful of items for me. Everything else that used to be a question will be measured by a read-only script I run on the bank's machine (written and tested; not yet run there).
 
 **New, October 19:** [V2 proposed features workbook](features/README.md): 29 candidate inputs, each with the raw fields and transactions it is derived from.
