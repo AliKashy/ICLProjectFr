@@ -1,3 +1,0 @@
-New files are now in tab_fraud_reorg: REORGANIZATION.md, RESULTS.md, EXPERIMENTS.md, TARGET_TREE/, and updated COPILOT_PROMPT.md and README.md. If handoff/SEND.md is not finished, finish Part 1 first.
-
-Then do Part 2. Read tab_fraud_reorg/REORGANIZATION.md and apply it exactly, on a new local branch waqas-organized made from waqas. Follow the steps in its section 10 in order. Make every kept entry point import and run, and fill the Command column in EXPERIMENTS.md from the real run configs. Do not push. Write handoff/REORG_REPORT.md in the format of section 11: at most 60 lines, at most 90 characters per line, and a "--- page N of T ---" marker every 40 lines. Keep the full detail in handoff/detail/REORG.md under the same IDs.
